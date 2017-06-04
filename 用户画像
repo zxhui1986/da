@@ -1,0 +1,27 @@
+
+
+
+
+select  batch_id,count(*) from public.ml_feature_data group by batch_id;
+select  batch_id,count(*) from public.ml_feature_data_string group by batch_id;
+select  count(*) from public.ml_feature_data_dev ;--无标识
+select  batch_id,count(*) from public.ml_feature_data_test group by batch_id;
+
+--select  * from public.ml_feature_data_dev2 limit 20;--无数据
+--select  * from public.ml_feature_data_test2 limit 20;--无记录
+--select  * from public.ml_feature_dim_test2 limit 20;不存在
+--select  * from public.ml_feature_target_config limit 20;
+--select  * from public.fr_rc_feature_data_20170208_processed limit 20;--不存在
+
+
+筛选数据：
+
+
+select   * from public.ml_feature_data where batch_id='rc_recall_20170301';
+>>>数据保存在xiaohuizhang$ /Users/xiaohuizhang/Documents/data_analysis/其他/rc_recall.csv 
+
+
+数据处理：
+
+1. 从长表变成宽表
+2. 无监督聚类（冰柱）
